@@ -1,79 +1,229 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ egitim_adı }}</title> <!-- Eğitim adı başlık olarak kullanılıyor -->
+    <title>{{ egitim_adi }}</title>
+
     <style>
+        /* Sayfanın genel stilini belirler */
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #cdc7c7;
+        }
+
+        /* İçeriği ortalayan ve stil veren ana kapsayıcı */
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            background: rgb(255, 250, 250);
             padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        /* Üst kısım (header) - Logo ve uygulama indirme butonları içerir */
         .header {
-            text-align: center;
-            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
         }
-        .header h1 {
+
+        /* Logonun boyutunu ayarlar */
+        .header img {
+            height: 50px;
+        }
+
+        /* İçerik bölümlerinin genel stili */
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #e6f7ff, #d1ebff);
+            border-left: 5px solid #8ccefa;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Başlıkların stilini ayarlar */
+        .section h2 {
             margin: 0;
-            font-size: 28px;
-        }
-        .header p {
-            font-size: 20px;
-            font-style: italic;
-        }
-        .content {
-            margin-top: 20px;
-        }
-        .content .section {
-            margin-bottom: 20px;
-        }
-        .content .section h2 {
-            font-size: 24px;
-            color: #2c3e50;
-        }
-        .content .section p {
             font-size: 18px;
+            font-weight: bold;
+            color: #375061;
+            text-transform: uppercase;
         }
-        .footer {
-            margin-top: 40px;
-            text-align: center;
+
+        /* İçerik kutularının stilini belirler */
+        .content {
+            margin-top: 8px;
+            padding: 12px;
+            background: #f0f1f1;
+            border-radius: 6px;
+            border: 1px solid #002040;
+            box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.1);
             font-size: 16px;
-            color: #7f8c8d;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Sayfanın alt kısmı (footer) - İletişim bilgilerini içerir */
+        .footer {
+            background-color: #94b6c3;
+            color: white;
+            text-align: left;
+            padding: 15px 20px;
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        /* Sosyal medya ikonlarının düzeni */
+        .social-icons {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        /* Sosyal medya ikonlarının boyutunu ve hover efektini belirler */
+        .social-icons img {
+            height: 20px;
+            transition: transform 0.2s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* BTK Akademi sosyal medya bağlantı yazısı */
+        .btkakademi-text {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Değerlendirme kutusunun arka planı */
+        .evaluation-box {
+            background: #f2f2f2;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        /* Sertifika görselinin ayarları */
+        .certificate-img {
+            width: 100%;
+            max-width: 400px;
+            display: block;
+            margin: 10px auto;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(122, 177, 187, 0.2);
         }
     </style>
 </head>
+
 <body>
+    <div class="container">
+        <!-- Üst Kısım: Logo ve Uygulama Bağlantıları -->
+        <div class="header">
+            <img src="Logo[1].svg" alt="BTK Akademi Logo">
+            <div>
+                <a href="https://apps.apple.com/tr/app/btk-akademi/id1495793302?l=tr" target="_blank">
+                    <img src="appstore-indir.png" alt="App Store'dan indir">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.btk.BTKAkademi" target="_blank">
+                    <img src="playstore-indir.png" alt="Google Play'den indir">
+                </a>
+            </div>
+        </div>
 
-    <div class="header">
-        <h1>{{ egitim_adı }}</h1>
-        <p>Katılımcı Eğitimi Bilgi Formu</p>
-    </div>
-
-    <div class="content">
+        <!-- Eğitim Bilgileri -->
         <div class="section">
-            <h2>Eğitim Bilgileri</h2>
-            <p><strong>Eğitmen:</strong> {{ egitmen_adı }}</p>
-            <p><strong>Tahmini Süre:</strong> {{ tahmini_süre }}</p>
-            <p><strong>Tahmini Teslim Tarihi:</strong> {{ teslim_tarihi }}</p>
-            <p><strong>Eğitimin Amacı:</strong> {{ egitim_amacı }}</p>
+            <h2>Eğitimin Adı</h2>
+            <div class="content">{{ egitim_adi }}</div>
         </div>
 
         <div class="section">
-            <h2>Eğitim Kazanımları</h2>
-            <p>{{ kazanımlar }}</p>
+            <h2>Eğitmen</h2>
+            <div class="content">{{ egitmen_adi }}</div>
+        </div>
+
+        <div class="section">
+            <h2>Eğitim Süresi</h2>
+            <div class="content">{{ egitim_suresi }}</div>
+        </div>
+
+        <div class="section">
+            <h2>Tahmini Teslim Tarihi</h2>
+            <div class="content">{{ teslim_tarihi }}</div>
+        </div>
+
+        <div class="section">
+            <h2>Eğitimin Amacı</h2>
+            <div class="content">{{ egitim_amaci }}</div>
         </div>
 
         <div class="section">
             <h2>Hedef Kitle</h2>
-            <p>{{ hedef_kitle }}</p>
+            <div class="content">{{ hedef_kitle }}</div>
+        </div>
+
+        <div class="section">
+            <h2>Eğitim Özeti</h2>
+            <div class="content">{{ egitim_ozeti }}</div>
+        </div>
+
+        <!-- Değerlendirme Kısmı -->
+        <div class="section">
+            <h2>Değerlendirme</h2>
+            <div class="content evaluation-box">
+                <p>Bu eğitimin değerlendirme süreci iki aşamalıdır.</p>
+                <ol>
+                    <li>Video eğitimleri en az %80 oranında izlemeli.</li>
+                    <li>Sınav başarı oranı en az %70 oranında başarı sağlanmalıdır.</li>
+                </ol>
+                <p>Sınav, bilgi ve beceri düzeyinizi değil, derse katılım sürecinizi ölçmeye yöneliktir.</p>
+            </div>
+        </div>
+
+        <!-- Sertifika Kısmı -->
+        <div class="section">
+            <h2>Sertifika</h2>
+            <div class="content">
+                <p><strong>Sertifika Türü:</strong> Katılım Sertifikası</p>
+                <img src="WhatsApp Görsel 2025-02-10 saat 16.27.41_20d6f514.jpg" alt="Katılım Sertifikası"
+                    class="certificate-img">
+            </div>
+        </div>
+
+        <!-- Alt Kısım: İletişim ve Sosyal Medya -->
+        <div class="footer">
+            <p class="social-text">
+                Bilgi Teknolojileri ve İletişim Kurumu - Çankaya / Ankara<br>
+                İletişim: <a href="mailto:destek@btkakademi.gov.tr">destek@btkakademi.gov.tr</a>
+            </p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/btkakademi/" target="_blank">
+                    <img src="instagram@3x.png" alt="Instagram">
+                </a>
+                <a href="https://x.com/BTKAkademi?" target="_blank">
+                    <img src="x_1@3x.png" alt="Twitter/X">
+                </a>
+                <a href="https://www.linkedin.com/company/btk-akademi/?originalSubdomain=tr" target="_blank">
+                    <img src="linkedin@3x.png" alt="LinkedIn">
+                </a>
+                <a href="https://www.youtube.com/BTKAkademiTube" target="_blank">
+                    <img src="youtube@3x.png" alt="YouTube">
+                </a>
+                <span class="btkakademi-text">/btkakademi</span>
+            </div>
         </div>
     </div>
-
-    <div class="footer">
-        <p>İletişim: egitim@example.com</p>
-        <p>Tarihler ve bilgiler değişebilir. Lütfen güncel bilgiyi kontrol edin.</p>
-    </div>
-
 </body>
+
 </html>
