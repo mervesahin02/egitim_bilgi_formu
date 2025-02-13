@@ -4,226 +4,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ egitim_adi }}</title>
-
+    <title>BTK Akademi Eğitim Bilgi Formu</title>
     <style>
-        /* Sayfanın genel stilini belirler */
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
             padding: 0;
-            background-color: #cdc7c7;
+            background-color: #f4f4f4;
         }
 
-        /* İçeriği ortalayan ve stil veren ana kapsayıcı */
         .container {
-            width: 800px;
-            margin: 0 auto;
-            background: rgb(255, 250, 250);
+            width: 80%;
+            margin: auto;
+            background: white;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Üst kısım (header) - Logo ve uygulama indirme butonları içerir */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
+            padding: 10px 0;
         }
 
-        /* Logonun boyutunu ayarlar */
         .header img {
             height: 50px;
         }
 
-        /* İçerik bölümlerinin genel stili */
-        .section {
-            margin: 20px 0;
-            padding: 15px;
-            background: linear-gradient(135deg, #e6f7ff, #d1ebff);
-            border-left: 5px solid #8ccefa;
-            border-radius: 8px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        .main-section {
+            background-color: rgba(50, 156, 178, 0.2);
+            /* Saydam mavi */
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 10px;
         }
 
-        /* Başlıkların stilini ayarlar */
-        .section h2 {
-            margin: 0;
-            font-size: 18px;
+        .main-title {
+            font-size: 20px;
             font-weight: bold;
-            color: #375061;
-            text-transform: uppercase;
+            color: #329cb2;
         }
 
-        /* İçerik kutularının stilini belirler */
-        .content {
-            margin-top: 8px;
-            padding: 12px;
-            background: #f0f1f1;
-            border-radius: 6px;
-            border: 1px solid #002040;
-            box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.1);
+        .info-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 16px;
+        }
+
+        .info-container img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .education-code {
+            font-size: 50px;
             font-weight: bold;
             color: #333;
-        }
-
-        /* Sayfanın alt kısmı (footer) - İletişim bilgilerini içerir */
-        .footer {
-            background-color: #94b6c3;
-            color: white;
-            text-align: left;
-            padding: 15px 20px;
-            margin-top: 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom-left-radius: 5px;
-            border-bottom-right-radius: 5px;
-        }
-
-        /* Sosyal medya ikonlarının düzeni */
-        .social-icons {
-            display: flex;
-            gap: 5px;
-            align-items: center;
-        }
-
-        /* Sosyal medya ikonlarının boyutunu ve hover efektini belirler */
-        .social-icons img {
-            height: 20px;
-            transition: transform 0.2s;
-        }
-
-        .social-icons img:hover {
-            transform: scale(1.1);
-        }
-
-        /* BTK Akademi sosyal medya bağlantı yazısı */
-        .btkakademi-text {
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        /* Değerlendirme kutusunun arka planı */
-        .evaluation-box {
-            background: #f2f2f2;
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        /* Sertifika görselinin ayarları */
-        .certificate-img {
-            width: 100%;
-            max-width: 400px;
-            display: block;
-            margin: 10px auto;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(122, 177, 187, 0.2);
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <!-- Üst Kısım: Logo ve Uygulama Bağlantıları -->
         <div class="header">
-            <img src="Logo[1].svg" alt="BTK Akademi Logo">
+            <img src="https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/bb2b1a79-8a7f-4c18-970c-6687a910b496/BTKAkademi-Normal.png?t=1739345573413"
+                alt="BTK Akademi">
             <div>
-                <a href="https://apps.apple.com/tr/app/btk-akademi/id1495793302?l=tr" target="_blank">
-                    <img src="appstore-indir.png" alt="App Store'dan indir">
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.btk.BTKAkademi" target="_blank">
-                    <img src="playstore-indir.png" alt="Google Play'den indir">
-                </a>
+                <img src="https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/23cd79b1-63fc-48c3-a2e7-0f01a0e4761c/playstore%404x.png?t=1739346154119"
+                    alt="App Store" width="100">
+                <img src="https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/23cd79b1-63fc-48c3-a2e7-0f01a0e4761c/playstore%404x.png?t=1739346154119"
+                    alt="Google Play" width="100">
             </div>
         </div>
 
-        <!-- Eğitim Bilgileri -->
-        <div class="section">
-            <h2>Eğitimin Adı</h2>
-            <div class="content">{{ egitim_adi }}</div>
-        </div>
-
-        <div class="section">
-            <h2>Eğitmen</h2>
-            <div class="content">{{ egitmen_adi }}</div>
-        </div>
-
-        <div class="section">
-            <h2>Eğitim Süresi</h2>
-            <div class="content">{{ egitim_suresi }}</div>
-        </div>
-
-        <div class="section">
-            <h2>Tahmini Teslim Tarihi</h2>
-            <div class="content">{{ teslim_tarihi }}</div>
-        </div>
-
-        <div class="section">
-            <h2>Eğitimin Amacı</h2>
-            <div class="content">{{ egitim_amaci }}</div>
-        </div>
-
-        <div class="section">
-            <h2>Hedef Kitle</h2>
-            <div class="content">{{ hedef_kitle }}</div>
-        </div>
-
-        <div class="section">
-            <h2>Eğitim Özeti</h2>
-            <div class="content">{{ egitim_ozeti }}</div>
-        </div>
-
-        <!-- Değerlendirme Kısmı -->
-        <div class="section">
-            <h2>Değerlendirme</h2>
-            <div class="content evaluation-box">
-                <p>Bu eğitimin değerlendirme süreci iki aşamalıdır.</p>
-                <ol>
-                    <li>Video eğitimleri en az %80 oranında izlemeli.</li>
-                    <li>Sınav başarı oranı en az %70 oranında başarı sağlanmalıdır.</li>
-                </ol>
-                <p>Sınav, bilgi ve beceri düzeyinizi değil, derse katılım sürecinizi ölçmeye yöneliktir.</p>
+        <div class="main-section">
+            <div>
+                <div class="main-title">Eğitimin Adı: <span id="egitim_adi">Yükleniyor...</span></div>
+                <div class="info-container">
+                    <img src="C:\\Users\\sydme\\Desktop\\1f465.png" alt="Kişi"> <span
+                        id="egitmen_adi">Yükleniyor...</span>
+                </div>
+                <div class="info-container">
+                    <img src="C:\\Users\\sydme\\Desktop\\112.jpg" alt="Zaman"> <span
+                        id="egitim_suresi">Yükleniyor...</span>
+                </div>
             </div>
-        </div>
-
-        <!-- Sertifika Kısmı -->
-        <div class="section">
-            <h2>Sertifika</h2>
-            <div class="content">
-                <p><strong>Sertifika Türü:</strong> Katılım Sertifikası</p>
-                <img src="WhatsApp Görsel 2025-02-10 saat 16.27.41_20d6f514.jpg" alt="Katılım Sertifikası"
-                    class="certificate-img">
-            </div>
-        </div>
-
-        <!-- Alt Kısım: İletişim ve Sosyal Medya -->
-        <div class="footer">
-            <p class="social-text">
-                Bilgi Teknolojileri ve İletişim Kurumu - Çankaya / Ankara<br>
-                İletişim: <a href="mailto:destek@btkakademi.gov.tr">destek@btkakademi.gov.tr</a>
-            </p>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/btkakademi/" target="_blank">
-                    <img src="instagram@3x.png" alt="Instagram">
-                </a>
-                <a href="https://x.com/BTKAkademi?" target="_blank">
-                    <img src="x_1@3x.png" alt="Twitter/X">
-                </a>
-                <a href="https://www.linkedin.com/company/btk-akademi/?originalSubdomain=tr" target="_blank">
-                    <img src="linkedin@3x.png" alt="LinkedIn">
-                </a>
-                <a href="https://www.youtube.com/BTKAkademiTube" target="_blank">
-                    <img src="youtube@3x.png" alt="YouTube">
-                </a>
-                <span class="btkakademi-text">/btkakademi</span>
-            </div>
+            <div class="education-code" id="education_code">000</div>
         </div>
     </div>
+
+    <script>
+        async function fetchEducationData() {
+            try {
+                const response = await fetch('http://localhost:5000/api/egitim'); // Backend API URL
+                const data = await response.json();
+
+                document.getElementById("egitim_adi").textContent = data.egitim_adi || "Veri Yok";
+                document.getElementById("egitmen_adi").textContent = data.egitmen_adi || "Veri Yok";
+                document.getElementById("egitim_suresi").textContent = data.egitim_suresi || "Veri Yok";
+                document.getElementById("education_code").textContent = data.education_code || "000";
+            } catch (error) {
+                console.error("Veri alınırken hata oluştu", error);
+            }
+        }
+
+        fetchEducationData();
+    </script>
 </body>
 
 </html>
