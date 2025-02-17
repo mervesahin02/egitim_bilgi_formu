@@ -1,23 +1,19 @@
-from docx_reader import read_docx
-from html_generator import generate_html_from_data
-from log_utils import log_message, log_input
-from data_validator import prompt_for_missing_data
+# Backend/main.py
+from fastapi import FastAPI
+from routers import docx_router, html_router, log_router
 
-def init():
-    docx_path = log_input('Lütfen .docx dosyasının yolunu girin: ').strip('"')
-    log_message("DOCX dosyası okunuyor...")
-    template_path = "egitim_bilgi_formu.html"
-    output_dir = "output"
+app = FastAPI()
 
-    log_message("DOCX dosyası okunuyor...")
-    data = read_docx(docx_path)
-    data = prompt_for_missing_data(data)
-    log_message(data)
+# Router'ları ekle
+app.include_router(docx_router.router)  # <-- Burada .router kullanmalısınız
+app.include_router(html_router.router)
+app.include_router(log_router.router)
 
-    log_message("HTML oluşturuluyor...")
-    output_file = generate_html_from_data(data, template_path, output_dir)
+@app.get("/")
+def root():
+    return {"message": "Eğitim Bilgi Formu Backend Çalışıyor 🚀"}
 
-    log_message(f"HTML dosyası oluşturuldu: {output_file}")
-
+# FastAPI'yi Uvicorn ile başlatmak için
 if __name__ == "__main__":
-    init()
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

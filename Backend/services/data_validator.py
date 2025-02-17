@@ -1,4 +1,4 @@
-from log_utils import log_message, log_input
+from Backend.utils.log_utils import log_message, log_input
 
 def check_missing_data(data):
     missing_keys = [key for key, value in data.items() if not value or value == "Veri Yok"]

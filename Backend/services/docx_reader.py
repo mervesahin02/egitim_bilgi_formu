@@ -1,13 +1,16 @@
 from docx import Document
 from thefuzz import fuzz, process  # Fuzzy string matching için
 
-def find_best_match(key, choices, threshold=60):  # isim benzerliği olan keyleri eşleştiriyor
+def find_best_match(key, choices, threshold=60):  
+    """İsim benzerliği olan keyleri eşleştiriyor"""
     best_match, score = process.extractOne(key, choices, scorer=fuzz.token_sort_ratio)
     return best_match if score >= threshold else None
 
-def read_docx(file_path):
-    doc = Document(file_path)
+def read_docx(file):
+    """DOCX dosyasını okur ve veriyi eşleştirir."""
+    doc = Document(file)
 
+    # Eşleştirilecek anahtarlar
     data = {
         "egitim_adi": "",
         "egitmen_adi": "",
@@ -18,6 +21,7 @@ def read_docx(file_path):
         "id": ""
     }
 
+    # Tabloyu gezip, anahtar-değer eşleştirmelerini yap
     for table in doc.tables:
         for row in table.rows:
             if len(row.cells) >= 2:
@@ -29,6 +33,7 @@ def read_docx(file_path):
                     if best_match:
                         data[best_match] = value_text
 
+    # Veri eksikse "Veri Yok" olarak doldur
     for key in data:
         if not data[key]:
             data[key] = "Veri Yok"
