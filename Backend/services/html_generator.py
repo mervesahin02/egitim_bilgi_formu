@@ -1,29 +1,22 @@
+from jinja2 import Environment, FileSystemLoader
 import os
-from jinja2 import Environment, FileSystemLoader, TemplateNotFound
 
-def generate_html_from_data(data, template_path="egitim_bilgi_formu.html", output_dir="output"):
-    # Template path'i doğru şekilde kontrol et ve yol oluştur
-    templates_dir = 'templates'
-    env = Environment(loader=FileSystemLoader(templates_dir))
-    
-    try:
-        # Şablonu yükle
-        template = env.get_template(template_path)
-    except TemplateNotFound:
-        raise FileNotFoundError(f"Template '{template_path}' bulunamadı.")
-    
-    # Çıktı dizini oluştur
-    os.makedirs(output_dir, exist_ok=True)
+# Jinja2 ortamını ayarla
+env = Environment(loader=FileSystemLoader("templates"))
+template = env.get_template("egitim_bilgi_formu.html")
 
-    # Eğitim adıyla dosya adını oluştur
-    egitim_adi = str(data['egitim_adi']).replace(' ', '_') if data['egitim_adi'] else "default_egitim_adi"
-    output_file = os.path.join(output_dir, f"{egitim_adi}.html")
+def generate_html_from_data(veri):
+    """
+    Verilen JSON verisini kullanarak HTML çıktısı oluşturur ve kaydeder.
+    """
+    # HTML çıktısını oluştur
+    html_output = template.render(veri)
 
-    # HTML içeriğini şablondan oluştur
-    html_content = template.render(data)
+    # HTML çıktısını kaydet
+    output_path = os.path.join("templates", "output.html")
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(html_output)
 
-    # HTML dosyasını yaz
-    with open(output_file, "w", encoding="utf-8") as f:
-        f.write(html_content)
-    
-    return output_file
+    print("✅ HTML dosyası başarıyla oluşturuldu!")
+    return output_path  # HTML dosyasının yolunu döndür
+

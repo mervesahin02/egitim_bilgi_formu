@@ -1,8 +1,19 @@
 import os
 from fastapi import FastAPI
 from Backend.routers import docx_router, html_router, log_router
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+# CORS'u aktif et
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Tüm kaynaklara izin ver (test amaçlı)
+    allow_credentials=True,
+    allow_methods=["*"],  # Tüm HTTP metodlarına izin ver
+    allow_headers=["*"],  # Tüm başlıklara izin ver
+)
 
 # Router'ları ekle
 app.include_router(docx_router.router)

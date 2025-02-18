@@ -1,18 +1,12 @@
-from fastapi import APIRouter, HTTPException
-from fastapi.responses import FileResponse
+from fastapi import APIRouter
 from Backend.services.html_generator import generate_html_from_data
 
-import os
+router = APIRouter()
 
-router = APIRouter(prefix="/html", tags=["HTML"])
-
-@router.get("/download/{file_name}")
-async def download_html(file_name: str):
+@router.post("/html/generate")
+async def generate_html_endpoint(data: dict):
     """
-    Kullanıcının yüklediği ve dönüştürülen HTML dosyasını indirir.
+    JSON verisini alır ve HTML olarak kaydeder.
     """
-    file_path = f"output/{file_name}.html"
-    if os.path.exists(file_path):
-        return FileResponse(file_path)
-    else:
-        raise HTTPException(status_code=404, detail="Dosya bulunamadı.")
+    html_path = generate_html_from_data(data)
+    return {"message": "HTML başarıyla oluşturuldu!", "html_path": html_path}
