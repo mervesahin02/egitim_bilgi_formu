@@ -1,4 +1,5 @@
 from Backend.utils.log_utils import log_message, log_input
+from thefuzz import fuzz, process  # Fuzzy string matching için
 
 def check_missing_data(data):
     missing_keys = [key for key, value in data.items() if not value or value == "Veri Yok"]
@@ -20,3 +21,7 @@ def prompt_for_missing_data(data):
                 data[key] = new_value if new_value else "Veri Yok"
     
     return data
+def find_best_match(key, choices, threshold=60):  
+    """İsim benzerliği olan keyleri eşleştiriyor"""
+    best_match, score = process.extractOne(key, choices, scorer=fuzz.token_sort_ratio)
+    return best_match if score >= threshold else None

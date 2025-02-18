@@ -1,5 +1,7 @@
 from fastapi import APIRouter
 from datetime import datetime
+from Backend.services.data_validator import check_missing_data
+
 
 router = APIRouter(prefix="/log", tags=["Log"])
 
