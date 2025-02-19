@@ -37,4 +37,4 @@ if __name__ == "__main__":
         print("❌ Geçersiz dosya yolu! Lütfen doğru bir .docx dosyası girin.")
         exit(1)  # Hatalı giriş olursa programı durdur
 
-    uvicorn.run("Backend.services.main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("Backend.services.main:app", host="127.0.0.1", port=8001, reload=True)

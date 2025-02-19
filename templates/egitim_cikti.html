@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eğitim Bilgi Formu</title>
+    <title>Çıktı</title>
     <script defer src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.0/html2pdf.bundle.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,15 +30,6 @@
             color: #329cb2;
         }
 
-        input[type="file"] {
-            display: block;
-            margin: 10px auto;
-            padding: 10px;
-            width: 90%;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
         button {
             background-color: #329cb2;
             color: white;
@@ -57,12 +49,15 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2>📄 .DOCX Dosyanızı Seçin</h2>
-        <form id="uploadForm">
-            <input type="file" id="fileInput" accept=".docx" required>
-            <button type="submit">Devam Et</button>
-        </form>
+    <div class="container" id="outputContainer">
+        <h2>✅ Bilgiler Kaydedildi</h2>
+        <p><b>Eğitim Adı:</b> <span id="displayEgitimAdi"></span></p>
+        <p><b>Eğitmen Adı:</b> <span id="displayEgitmenAdi"></span></p>
+        <p><b>Eğitim Süresi:</b> <span id="displayEgitimSuresi"></span></p>
+        <p><b>Eğitim Özeti:</b> <span id="displayEgitimOzeti"></span></p>
+        <p><b>Hedef Kitle:</b> <span id="displayHedefKitle"></span></p>
+        <p><b>Kaynak Dökümanlar:</b> <span id="displayKaynakDokumanlar"></span></p>
+        <button onclick="downloadPDF()">📥 PDF Olarak İndir</button>
     </div>
 </body>
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eğitim Bilgi Formu</title>
+    <title>Eksik Veri Formu</title>
     <script defer src="js/main.js"></script>
     <style>
         body {
@@ -29,7 +29,7 @@
             color: #329cb2;
         }
 
-        input[type="file"] {
+        input[type="text"] {
             display: block;
             margin: 10px auto;
             padding: 10px;
@@ -58,10 +58,15 @@
 
 <body>
     <div class="container">
-        <h2>📄 .DOCX Dosyanızı Seçin</h2>
-        <form id="uploadForm">
-            <input type="file" id="fileInput" accept=".docx" required>
-            <button type="submit">Devam Et</button>
+        <h2>📝 Eksik Verileri Tamamlayın</h2>
+        <form id="missingDataForm">
+            <input type="text" id="egitimAdi" placeholder="Eğitimin Adı">
+            <input type="text" id="egitmenAdi" placeholder="Eğitmen Adı">
+            <input type="text" id="egitimSuresi" placeholder="Eğitim Süresi">
+            <input type="text" id="egitimOzeti" placeholder="Eğitim Özeti">
+            <input type="text" id="hedefKitle" placeholder="Hedef Kitle">
+            <input type="text" id="kaynakDokumanlar" placeholder="Kaynak Dökümanlar">
+            <button type="button" onclick="submitForm()">Verileri Kaydet</button>
         </form>
     </div>
 </body>
