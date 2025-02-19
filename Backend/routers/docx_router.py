@@ -15,12 +15,15 @@ async def read_uploaded_docx(file: UploadFile = File(...)):
     try:
         content = await file.read()
         docx_data = read_docx(content)
+        
+        print(f"\n✅ API İstek Başarılı! JSON Verisi: {docx_data}")  # Log ekle
         return {"parsed_data": docx_data}
+    
     except Exception as e:
         error_message = f"DOCX okuma hatası: {str(e)}\n{traceback.format_exc()}"
-        print(error_message)  # Hata mesajını terminalde göster
+        print(error_message)
         raise HTTPException(status_code=500, detail=error_message)
-
+    
 def find_best_match(key, choices, threshold=60):  
     """İsim benzerliği olan keyleri eşleştiriyor"""
     best_match, score = process.extractOne(key, choices, scorer=fuzz.token_sort_ratio)

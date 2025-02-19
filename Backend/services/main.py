@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from Backend.routers import docx_router, html_router, log_router
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.cors import CORSMiddleware
+from Backend.routers import pdf_router 
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
@@ -19,6 +21,8 @@ app.add_middleware(
 app.include_router(docx_router.router)
 app.include_router(html_router.router)
 app.include_router(log_router.router)
+app.include_router(pdf_router.router)
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 def root():
