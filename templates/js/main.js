@@ -132,6 +132,19 @@ async function downloadPDF() {
         alert("PDF oluşturma sırasında bir hata oluştu.");
     }
 }
+function printPage() {
+    window.print();  // 🔥 Tarayıcının yazdırma diyaloğunu açar
+}
+function downloadHTML() {
+    const content = document.documentElement.outerHTML;  // 🔥 Sayfanın tüm HTML içeriğini al
+    const blob = new Blob([content], { type: "text/html" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "egitim_cikti.html";  // 🔥 İndirilecek dosyanın ismi
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
 
 
 
