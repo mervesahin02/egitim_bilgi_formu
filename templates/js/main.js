@@ -107,12 +107,12 @@ function submitForm() {
 
 async function downloadPDF() {
     try {
-        console.log("📥 PDF oluşturma işlemi başlatıldı...");
+        console.log("📥 SelectPDF ile PDF oluşturma işlemi başlatıldı...");
 
         let savedData = JSON.parse(localStorage.getItem("egitimData") || "{}");
 
         let response = await fetch("http://127.0.0.1:8001/pdf/generate", {
-            method: "POST",  // 📌 GET yerine POST kullan!
+            method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(savedData)
         });
@@ -125,7 +125,7 @@ async function downloadPDF() {
         console.log("✅ PDF başarıyla oluşturuldu:", result);
 
         if (result.pdf_url) {
-            // PDF'i indirmek için yönlendir
+            // PDF dosyasını indir
             window.location.href = result.pdf_url;
         } else {
             alert("PDF oluşturma başarısız!");
@@ -136,4 +136,6 @@ async function downloadPDF() {
         alert("PDF oluşturma sırasında bir hata oluştu.");
     }
 }
+
+
 
