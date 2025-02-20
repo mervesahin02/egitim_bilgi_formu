@@ -107,14 +107,10 @@ function submitForm() {
 
 async function downloadPDF() {
     try {
-        console.log("📥 SelectPDF ile PDF oluşturma işlemi başlatıldı...");
-
-        let savedData = JSON.parse(localStorage.getItem("egitimData") || "{}");
+        console.log("📥 PDF oluşturma işlemi başlatıldı...");
 
         let response = await fetch("http://127.0.0.1:8001/pdf/generate", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(savedData)
+            method: "POST"
         });
 
         if (!response.ok) {

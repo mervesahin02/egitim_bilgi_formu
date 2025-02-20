@@ -6,13 +6,13 @@ import os
 router = APIRouter(prefix="/pdf", tags=["PDF"])
 
 @router.post("/generate")
-async def generate_pdf_endpoint(data: dict):
+async def generate_pdf_endpoint():
     """
-    SelectPDF kullanarak JSON verisinden PDF oluşturur.
+    Son oluşan HTML'yi PDF olarak kaydeder.
     """
     try:
         print("📥 PDF oluşturma isteği alındı...")
-        pdf_path = generate_pdf(data)
+        pdf_path = generate_pdf()
 
         if not os.path.exists(pdf_path):
             raise HTTPException(status_code=500, detail="❌ PDF oluşturulamadı!")
