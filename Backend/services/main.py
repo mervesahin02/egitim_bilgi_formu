@@ -1,20 +1,18 @@
 import os
 from fastapi import FastAPI
-from Backend.routers import docx_router, html_router, log_router
+from Backend.routers import docx_router, html_router, log_router, pdf_router, word_router
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.middleware.cors import CORSMiddleware
-from Backend.routers import pdf_router 
 from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
-# CORS'u aktif et
+# CORS ayarları
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Tüm kaynaklara izin ver (test amaçlı)
+    allow_origins=["http://localhost:5500"],  # Sadece frontend'in portunu izinli hale getir
     allow_credentials=True,
-    allow_methods=["*"],  # Tüm HTTP metodlarına izin ver
-    allow_headers=["*"],  # Tüm başlıklara izin ver
+    allow_methods=["*"],  # Her türlü HTTP metoduna izin verir
+    allow_headers=["*"],  # Her türlü header'a izin verir
 )
 
 # Router'ları ekle
@@ -22,6 +20,7 @@ app.include_router(docx_router.router)
 app.include_router(html_router.router)
 app.include_router(log_router.router)
 app.include_router(pdf_router.router)
+app.include_router(word_router.router)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")

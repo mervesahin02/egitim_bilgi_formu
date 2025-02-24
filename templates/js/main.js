@@ -132,9 +132,45 @@ async function downloadPDF() {
         alert("PDF oluşturma sırasında bir hata oluştu.");
     }
 }
+
+async function downloadWord() {
+    try {
+        console.log("📥 Word oluşturma işlemi başlatıldı...");
+
+        let savedData = JSON.parse(localStorage.getItem("egitimData") || "{}");
+
+        let response = await fetch("http://127.0.0.1:8001/word/generate", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(savedData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Word oluşturma başarısız! HTTP Hata Kodu: ${response.status}`);
+        }
+
+        let result = await response.json();
+        console.log("✅ Word başarıyla oluşturuldu:", result);
+
+        if (result.file_path) {
+            // Geçici dosyayı frontend templates kısmından indir
+            window.location.href = "http://127.0.0.1:8001/static/" + result.file_path.split("/").pop();
+        } else {
+            alert("Word oluşturma başarısız!");
+        }
+
+    } catch (error) {
+        console.error("Word indirme hatası:", error);
+        alert("Word oluşturma sırasında bir hata oluştu.");
+    }
+}
+
 function printPage() {
     window.print();  // 🔥 Tarayıcının yazdırma diyaloğunu açar
 }
+
 function downloadHTML() {
     const content = document.documentElement.outerHTML;  // 🔥 Sayfanın tüm HTML içeriğini al
     const blob = new Blob([content], { type: "text/html" });
@@ -145,6 +181,3 @@ function downloadHTML() {
     a.click();
     document.body.removeChild(a);
 }
-
-
-
