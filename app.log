@@ -3,3 +3,46 @@ You can install "python-multipart" with:
 
 pip install python-multipart
 
+2025-02-25 16:22:42,580 - Start to convert temp_CV Barýþ Özkan.pdf
+2025-02-25 16:22:42,581 - [1;36m[1/4] Opening document...[0m
+2025-02-25 16:22:42,581 - [1;36m[2/4] Analyzing document...[0m
+2025-02-25 16:22:42,642 - 'created' timestamp seems very low; regarding as unix timestamp
+2025-02-25 16:22:42,642 - 'modified' timestamp seems very low; regarding as unix timestamp
+2025-02-25 16:22:42,644 - 'created' timestamp seems very low; regarding as unix timestamp
+2025-02-25 16:22:42,644 - 'modified' timestamp seems very low; regarding as unix timestamp
+2025-02-25 16:22:42,645 - 'created' timestamp seems very low; regarding as unix timestamp
+2025-02-25 16:22:42,646 - 'modified' timestamp seems very low; regarding as unix timestamp
+2025-02-25 16:22:42,692 - Ignore Line "C#" due to overlap
+2025-02-25 16:22:42,731 - [1;36m[3/4] Parsing pages...[0m
+2025-02-25 16:22:42,731 - (1/1) Page 1
+2025-02-25 16:22:42,784 - [1;36m[4/4] Creating pages...[0m
+2025-02-25 16:22:42,802 - (1/1) Page 1
+2025-02-25 16:22:42,917 - Terminated in 0.34s.
+2025-02-25 16:23:29,058 - Start to convert temp_Çýktý.pdf
+2025-02-25 16:23:29,058 - [1;36m[1/4] Opening document...[0m
+2025-02-25 16:23:29,059 - [1;36m[2/4] Analyzing document...[0m
+2025-02-25 16:23:29,156 - [1;36m[3/4] Parsing pages...[0m
+2025-02-25 16:23:29,156 - (1/1) Page 1
+2025-02-25 16:23:29,175 - [1;36m[4/4] Creating pages...[0m
+2025-02-25 16:23:29,183 - (1/1) Page 1
+2025-02-25 16:23:29,215 - Terminated in 0.16s.
+2025-02-25 16:41:49,861 - Start to convert temp_Çýktý1.pdf
+2025-02-25 16:41:49,862 - [1;36m[1/4] Opening document...[0m
+2025-02-25 16:41:49,862 - [1;36m[2/4] Analyzing document...[0m
+2025-02-25 16:41:49,950 - [1;36m[3/4] Parsing pages...[0m
+2025-02-25 16:41:49,950 - (1/2) Page 1
+2025-02-25 16:41:49,969 - (2/2) Page 2
+2025-02-25 16:41:49,973 - [1;36m[4/4] Creating pages...[0m
+2025-02-25 16:41:49,980 - (1/2) Page 1
+2025-02-25 16:41:49,994 - (2/2) Page 2
+2025-02-25 16:41:50,011 - Terminated in 0.15s.
+2025-02-25 16:50:31,064 - Start to convert temp_1.pdf
+2025-02-25 16:50:31,066 - [1;36m[1/4] Opening document...[0m
+2025-02-25 16:50:31,067 - [1;36m[2/4] Analyzing document...[0m
+2025-02-25 16:50:31,909 - [1;36m[3/4] Parsing pages...[0m
+2025-02-25 16:50:31,909 - (1/2) Page 1
+2025-02-25 16:50:32,010 - (2/2) Page 2
+2025-02-25 16:50:32,040 - [1;36m[4/4] Creating pages...[0m
+2025-02-25 16:50:32,055 - (1/2) Page 1
+2025-02-25 16:50:32,199 - (2/2) Page 2
+2025-02-25 16:50:32,347 - Terminated in 1.28s.

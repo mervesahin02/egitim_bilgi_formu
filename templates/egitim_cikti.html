@@ -163,7 +163,7 @@
             width: auto;
         }
 
-        /* PDF İndirme Butonu */
+        /* PDF İndirme Butonu 
         button {
             background: linear-gradient(to right, #97c4df, #337ef0);
             color: white;
@@ -175,7 +175,28 @@
             margin-top: 30px;
             width: 100%;
             transition: 0.3s;
-            font-weight: 600;
+            font-weight: 600;*/
+
+
+        /* 📌 Yazdırma sırasında butonları gizle */
+        @media print {
+            .print-buttons {
+                display: none;
+            }
+        }
+
+        /* 📌 Butonları sabitleme */
+        .print-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            gap: 10px;
         }
 
         button:hover {
@@ -225,6 +246,9 @@
                     alt="Süre">
                 <span>Eğitim Süresi: <span id="displayEgitimSuresi"></span></span>
             </div>
+            <div class="info-item">
+                <span>🆔 Eğitim ID: <span id="displayEgitimID"></span></span>
+            </div>
         </div>
 
         <!-- Diğer Bilgiler -->
@@ -269,11 +293,20 @@
             </div>
         </div>
 
-        <!--  <button onclick="printPage()">🖨️ Sayfayı Yazdır</button>-->
+        <!-- 📌 Sayfa Dışı Butonlar -->
+        <div class="print-buttons">
+            <button id="printBtn" onclick="printPage()">🖨️ Sayfayı Yazdır</button>
+            <button id="wordConvertBtn" onclick="showPdfUpload()">📄 Word Olarak İndir</button>
+        </div>
 
+        <!-- 📌 PDF Seçme Ekranı (Başlangıçta gizli) -->
+        <div id="pdfUploadContainer" style="display: none; margin-top: 20px;">
+            <input type="file" id="pdfFileInput" accept=".pdf">
+            <button onclick="convertToWord()">📂 PDF Seç ve Word'e Çevir</button>
+        </div>
 
-        <button onclick="printPage()">🖨️ Sayfayı Yazdır</button>
-        <button onclick="downloadWord()">📄 Word Olarak İndir</button>
+        <script src="js/main.js"></script>
+
 
 
     </div>
