@@ -163,14 +163,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// ✅ Sayfayı yazdır
-function printPage() {
-    window.print();
+// ✅ Modal Aç
+function openPdfModal() {
+    document.getElementById("pdfModal").style.display = "block";
 }
 
-// ✅ PDF seçme ekranını göster
-function showPdfUpload() {
-    document.getElementById("pdfUploadContainer").style.display = "block";
+// ✅ Modal Kapat
+function closePdfModal() {
+    document.getElementById("pdfModal").style.display = "none";
 }
 
 // ✅ PDF'den Word'e çevir
@@ -197,4 +197,7 @@ function convertToWord() {
             link.click();
         })
         .catch(error => console.error("Hata:", error));
+
+    // ✅ Modal'ı kapat
+    closePdfModal();
 }
