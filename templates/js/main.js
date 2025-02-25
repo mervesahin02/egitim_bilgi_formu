@@ -83,55 +83,47 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("displayHedefKitle").textContent = savedData.hedef_kitle || "Bilinmiyor";
         document.getElementById("displayKaynakDokumanlar").textContent = savedData.kaynak_dokumanlar || "Bilinmiyor";
     }
+
+    const downloadBtn = document.getElementById("downloadBtn");
+    const pdfForm = document.getElementById("pdfForm");
+    
+    // Butona tıklanması durumunda formu göster
+    downloadBtn.addEventListener("click", function() {
+        pdfForm.style.display = "block";  // Formu göster
+        downloadBtn.style.display = "none";  // Butonu gizle
+    });
+
+    // Form gönderildiğinde PDF yolunu backend'e gönder
+    pdfForm.addEventListener("submit", function(event) {
+        event.preventDefault();  // Sayfa yenilenmesini engelle
+        
+        const pdfPath = document.getElementById("pdf_path").value;
+        
+        if (pdfPath) {
+            // PDF yolunu backend'e POST et
+            fetch("http://localhost:8001/word/generate", {
+                method: "POST",
+                body: new URLSearchParams({
+                    pdf_path: pdfPath
+                }),
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+            .then(response => response.blob())
+            .then(blob => {
+                // Dosyayı indirmek için bir link oluştur
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(blob);
+                link.download = "egitim_bilgileri.docx";
+                link.click();
+            })
+            .catch(error => {
+                console.error("Hata oluştu:", error);
+            });
+        }
+    });
 });
-
-// ✅ Eksik verileri kaydetme fonksiyonu
-function submitForm() {
-    console.log("📌 submitForm() çağırıldı.");
-
-    let formData = {
-        egitim_adi: document.getElementById("egitimAdi").value,
-        egitmen_adi: document.getElementById("egitmenAdi").value,
-        egitim_suresi: document.getElementById("egitimSuresi").value,
-        egitim_ozeti: document.getElementById("egitimOzeti").value,
-        hedef_kitle: document.getElementById("hedefKitle").value,
-        kaynak_dokumanlar: document.getElementById("kaynakDokumanlar").value
-    };
-
-    // JSON verisini localStorage’a kaydet
-    localStorage.setItem("egitimData", JSON.stringify(formData));
-
-    console.log("✅ Veriler kaydedildi, yönlendirme yapılıyor...");
-    window.location.href = "egitim_cikti.html";
-}
-
-async function downloadPDF() {
-    try {
-        console.log("📥 PDF oluşturma işlemi başlatıldı...");
-
-        let response = await fetch("http://127.0.0.1:8001/pdf/generate", {
-            method: "POST"
-        });
-
-        if (!response.ok) {
-            throw new Error(`PDF oluşturma başarısız! HTTP Hata Kodu: ${response.status}`);
-        }
-
-        let result = await response.json();
-        console.log("✅ PDF başarıyla oluşturuldu:", result);
-
-        if (result.pdf_url) {
-            // PDF dosyasını indir
-            window.location.href = result.pdf_url;
-        } else {
-            alert("PDF oluşturma başarısız!");
-        }
-
-    } catch (error) {
-        console.error("PDF indirme hatası:", error);
-        alert("PDF oluşturma sırasında bir hata oluştu.");
-    }
-}
 
 async function downloadWord() {
     try {
@@ -139,6 +131,7 @@ async function downloadWord() {
 
         let savedData = JSON.parse(localStorage.getItem("egitimData") || "{}");
 
+        // JSON verisini düzgün formatta gönder
         let response = await fetch("http://127.0.0.1:8001/word/generate", {
             method: "POST",
             headers: {
@@ -165,6 +158,27 @@ async function downloadWord() {
         console.error("Word indirme hatası:", error);
         alert("Word oluşturma sırasında bir hata oluştu.");
     }
+}
+
+
+// ✅ Eksik verileri kaydetme fonksiyonu
+function submitForm() {
+    console.log("📌 submitForm() çağırıldı.");
+
+    let formData = {
+        egitim_adi: document.getElementById("egitimAdi").value,
+        egitmen_adi: document.getElementById("egitmenAdi").value,
+        egitim_suresi: document.getElementById("egitimSuresi").value,
+        egitim_ozeti: document.getElementById("egitimOzeti").value,
+        hedef_kitle: document.getElementById("hedefKitle").value,
+        kaynak_dokumanlar: document.getElementById("kaynakDokumanlar").value
+    };
+
+    // JSON verisini localStorage’a kaydet
+    localStorage.setItem("egitimData", JSON.stringify(formData));
+
+    console.log("✅ Veriler kaydedildi, yönlendirme yapılıyor...");
+    window.location.href = "egitim_cikti.html";
 }
 
 function printPage() {
