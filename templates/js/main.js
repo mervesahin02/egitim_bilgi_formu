@@ -43,22 +43,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // 📌 Eksik veri formu sayfası
-    if (document.getElementById("missingDataForm")) {
-        let savedData = JSON.parse(localStorage.getItem("egitimData") || "{}");
-
-        document.getElementById("id").value = savedData.id || "";
-        document.getElementById("egitimAdi").value = savedData.egitim_adi || "";
-        document.getElementById("egitmenAdi").value = savedData.egitmen_adi || "";
-        document.getElementById("egitimSuresi").value = savedData.egitim_suresi || "";
-        document.getElementById("egitimOzeti").value = savedData.egitim_ozeti || "";
-        document.getElementById("hedefKitle").value = savedData.hedef_kitle || "";
-        document.getElementById("kaynakDokumanlar").value = savedData.kaynak_dokumanlar || "";
-
-        document.getElementById("missingDataForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            submitForm();
-        });
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+        if (document.getElementById("missingDataForm")) {
+            let savedData = JSON.parse(localStorage.getItem("egitimData") || "{}");
+    
+            document.getElementById("id").value = savedData.id || "";
+            document.getElementById("egitimAdi").value = savedData.egitim_adi || "";
+            document.getElementById("egitmenAdi").value = savedData.egitmen_adi || "";
+            document.getElementById("egitimSuresi").value = savedData.egitim_suresi || "";
+            document.getElementById("egitimOzeti").value = savedData.egitim_ozeti || "";
+            document.getElementById("hedefKitle").value = savedData.hedef_kitle || "";
+            document.getElementById("kaynakDokumanlar").value = savedData.kaynak_dokumanlar || "";
+            document.getElementById("kazanimlar").value = savedData.kazanimlar || "";
+            document.getElementById("amac").value = savedData.amac || "";
+            document.getElementById("kullanilacak_programlar").value = savedData.kullanilacak_programlar || ""; // ✅ Eklendi
+    
+            document.getElementById("missingDataForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+                submitForm();
+            });
+        }
+    });
 
     // 📌 Çıktı sayfasında mıyız?
     if (document.getElementById("outputContainer")) {
@@ -70,6 +75,10 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("displayEgitimOzeti").textContent = savedData.egitim_ozeti || "Bilinmiyor";
         document.getElementById("displayHedefKitle").textContent = savedData.hedef_kitle || "Bilinmiyor";
         document.getElementById("displayKaynakDokumanlar").textContent = savedData.kaynak_dokumanlar || "Bilinmiyor";
+        document.getElementById("displayGereksinimler").textContent = savedData.gereksinimler || "Bilinmiyor";
+        document.getElementById("displayKazanimlar").textContent = savedData.kazanimlar || "Bilinmiyor";
+        document.getElementById("displayAmac").textContent = savedData.amac || "Bilinmiyor";
+        document.getElementById("displayKullanilacakProgramlar").textContent = savedData.kullanilacak_programlar || "Bilinmiyor";
 
         // Yazdırma sırasında butonları gizle
         window.onbeforeprint = function () {
@@ -93,7 +102,10 @@ function submitForm() {
         egitim_suresi: document.getElementById("egitimSuresi").value,
         egitim_ozeti: document.getElementById("egitimOzeti").value,
         hedef_kitle: document.getElementById("hedefKitle").value,
-        kaynak_dokumanlar: document.getElementById("kaynakDokumanlar").value
+        kaynak_dokumanlar: document.getElementById("kaynakDokumanlar").value,
+        kazanimlar: document.getElementById("kazanimlar").value,
+        amac: document.getElementById("amac").value,
+        kullanilacak_programlar: document.getElementById("kullanilacak_programlar").value, // ✅ Eklendi
     };
 
     localStorage.setItem("egitimData", JSON.stringify(formData));
@@ -149,6 +161,10 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("displayHedefKitle").textContent = savedData.hedef_kitle || "Bilinmiyor";
         document.getElementById("displayKaynakDokumanlar").textContent = savedData.kaynak_dokumanlar || "Bilinmiyor";
         document.getElementById("displayEgitimID").textContent = savedData.id || "Bilinmiyor";
+        document.getElementById("displayGereksinimler").textContent = savedData.gereksinimler || "Bilinmiyor";
+        document.getElementById("displayKazanimlar").textContent = savedData.kazanimlar || "Bilinmiyor";
+        document.getElementById("displayAmac").textContent = savedData.amac || "Bilinmiyor";
+        document.getElementById("displayKullanilacakProgramlar").textContent = savedData.kullanilacak_programlar || "Bilinmiyor";
 
         // 📌 Yazdırma sırasında butonları gizle
         window.onbeforeprint = function () {

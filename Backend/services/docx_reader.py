@@ -16,7 +16,11 @@ def read_docx(file):
             "egitim_suresi": "",
             "hedef_kitle": "",
             "egitim_ozeti": "",
-            "kaynak_dokumanlar": ""
+            "kaynak_dokumanlar": "",
+            "gereksinimler": "",  # ✅ Yeni alan eklendi
+            "kazanimlar": "",  # ✅ Yeni alan eklendi
+            "amac": "",  # ✅ Yeni alan eklendi
+            "kullanilacak_programlar": "" # ✅ Yeni alan eklendi
         }
 
         print("\n🔍 DOCX Dosyası Okunuyor...")

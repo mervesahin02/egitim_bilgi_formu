@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +14,6 @@
             height: 100vh;
             background-color: #f4f4f4;
         }
-
         .container {
             background: white;
             padding: 30px;
@@ -24,11 +22,9 @@
             text-align: center;
             width: 400px;
         }
-
         h2 {
             color: #329cb2;
         }
-
         input[type="text"] {
             display: block;
             margin: 10px auto;
@@ -37,7 +33,6 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-
         button {
             background-color: #329cb2;
             color: white;
@@ -49,13 +44,11 @@
             margin-top: 10px;
             width: 100%;
         }
-
         button:hover {
             background-color: #287c91;
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h2>📝 Eksik Verileri Tamamlayın</h2>
@@ -67,9 +60,12 @@
             <input type="text" id="egitimOzeti" placeholder="Eğitim Özeti">
             <input type="text" id="hedefKitle" placeholder="Hedef Kitle">
             <input type="text" id="kaynakDokumanlar" placeholder="Kaynak Dökümanlar">
+            <input type="text" id="temelBilgiBeceri" placeholder="Temel Bilgi ve Beceri Gereksinimleri">
+            <input type="text" id="kazanimlar" placeholder="Kazanımlar">
+            <input type="text" id="amac" placeholder="Amaç">
+            <input type="text" id="kullanilacak_programlar" placeholder="Kullanılacak Programlar"> <!-- ✅ Eklendi -->
             <button type="button" onclick="submitForm()">Verileri Kaydet</button>
         </form>
     </div>
 </body>
-
 </html>
