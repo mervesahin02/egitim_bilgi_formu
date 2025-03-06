@@ -75,6 +75,30 @@
             <textarea id="sertifika" placeholder="Sertifika"></textarea>
             <button type="button" onclick="submitForm()">Verileri Kaydet</button>
         </form>
+        
+
+        <script>
+            document.getElementById("submitButton").addEventListener("click", function () {
+                const formData = {
+                    egitmenAdi: document.getElementById("egitmenAdi").value,
+                    egitimAdi: document.getElementById("egitimAdi").value,
+                    egitimSuresi: document.getElementById("egitimSuresi").value,
+                    id: document.getElementById("id").value,
+                    amac: document.getElementById("amac").value,
+                    egitimOzeti: document.getElementById("egitimOzeti").value,
+                    hedefKitle: document.getElementById("hedefKitle").value,
+                    kazanimlar: document.getElementById("kazanimlar").value,
+                    gereksinimler: document.getElementById("gereksinimler").value,
+                    kullanilacak_programlar: document.getElementById("kullanilacak_programlar").value,
+                    kaynakDokumanlar: document.getElementById("kaynakDokumanlar").value,
+                    degerlendirme: document.getElementById("degerlendirme").value,
+                    sertifika: document.getElementById("sertifika").value
+                };
+    
+                console.log("Form Verileri:", formData);
+            });
+        </script>
+
     </div>
 </body>
 

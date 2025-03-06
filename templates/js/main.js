@@ -69,16 +69,16 @@ document.addEventListener("DOMContentLoaded", function () {
     if (document.getElementById("outputContainer")) {
         let savedData = JSON.parse(localStorage.getItem("egitimData") || "{}");
 
-        document.getElementById("displayEgitimAdi").textContent = savedData.egitim_adi || "Bilinmiyor";
-        document.getElementById("displayEgitmenAdi").textContent = savedData.egitmen_adi || "Bilinmiyor";
-        document.getElementById("displayEgitimSuresi").textContent = savedData.egitim_suresi || "Bilinmiyor";
-        document.getElementById("displayEgitimOzeti").textContent = savedData.egitim_ozeti || "Bilinmiyor";
-        document.getElementById("displayHedefKitle").textContent = savedData.hedef_kitle || "Bilinmiyor";
-        document.getElementById("displayKaynakDokumanlar").textContent = savedData.kaynak_dokumanlar || "Bilinmiyor";
-        document.getElementById("displayGereksinimler").textContent = savedData.gereksinimler || "Bilinmiyor";
-        document.getElementById("displayKazanimlar").textContent = savedData.kazanimlar || "Bilinmiyor";
-        document.getElementById("displayAmac").textContent = savedData.amac || "Bilinmiyor";
-        document.getElementById("displayKullanilacakProgramlar").textContent = savedData.kullanilacak_programlar || "Bilinmiyor";
+        document.getElementById("displayEgitimAdi").innerText = savedData.egitim_adi || "Bilinmiyor";
+        document.getElementById("displayEgitmenAdi").innerText = savedData.egitmen_adi || "Bilinmiyor";
+        document.getElementById("displayEgitimSuresi").innerText = savedData.egitim_suresi || "Bilinmiyor";
+        document.getElementById("displayEgitimOzeti").innerText = savedData.egitim_ozeti || "Bilinmiyor";
+        document.getElementById("displayHedefKitle").innerText = savedData.hedef_kitle || "Bilinmiyor";
+        document.getElementById("displayKaynakDokumanlar").innerText = savedData.kaynak_dokumanlar || "Bilinmiyor";
+        document.getElementById("displayGereksinimler").innerText = savedData.gereksinimler || "Bilinmiyor";
+        document.getElementById("displayKazanimlar").innerText = savedData.kazanimlar || "Bilinmiyor";
+        document.getElementById("displayAmac").innerText = savedData.amac || "Bilinmiyor";
+        document.getElementById("displayKullanilacakProgramlar").innerText = savedData.kullanilacak_programlar || "Bilinmiyor";
 
         // Yazdırma sırasında butonları gizle
         window.onbeforeprint = function () {
@@ -111,7 +111,7 @@ function submitForm() {
     localStorage.setItem("egitimData", JSON.stringify(formData));
     window.location.href = "egitim_cikti.html";
 }
-
+s
 // ✅ Yazdırma işlemi
 function printPage() {
     window.print();
