@@ -125,53 +125,61 @@
         <div class="header">
             <img src="https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/bb2b1a79-8a7f-4c18-970c-6687a910b496/BTKAkademi-Normal.png"
                 alt="BTK Akademi Logo">
-            <div class="download">
-                <a href="https://apps.apple.com" target="_blank">
+            <div class="download" style="display: flex; gap: 10px; align-items: center;">
+                <a href="https://apps.apple.com" target="_blank" style="display: inline-block;">
                     <img src="https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/78e5e9d0-8ff6-4cc2-ac6f-64bfda53156b/Appstore%404x.png"
-                        alt="App Store">
+                        alt="App Store" style="border: none; display: block;">
                 </a>
-                <a href="https://play.google.com" target="_blank">
+                <a href="https://play.google.com" target="_blank" style="display: inline-block;">
                     <img src="https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/23cd79b1-63fc-48c3-a2e7-0f01a0e4761c/playstore%404x.png"
-                        alt="Google Play">
+                        alt="Google Play" style="border: none; display: block;">
                 </a>
             </div>
+
         </div>
 
         <div class="info-section">
             <div class="info-item">
-                <span>Eğitim Adı: <span id="displayEgitimAdi"></span></span>
+                <span style="font-weight: bold;">Eğitmen Adı:</span> <span id="displayEgitmenAdi"
+                    style="font-weight: normal;"></span>
             </div>
             <div class="info-item">
-                <img src="https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/f7d586f6-dafa-4297-ad7a-4b23fb268d63/ki%C5%9Fi.jpg"
-                    alt="Eğitmen Adı">
-                <span>Eğitmen Adı: <span id="displayEgitmenAdi"></span></span>
+                <span style="font-weight: bold;">Eğitimin Adı:</span> <span id="displayEgitimAdi"
+                    style="font-weight: normal;"></span>
             </div>
             <div class="info-item">
-                <img src="https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/de1ffdd8-d5ff-46b6-9d15-78c883bbbb20/saat.jpg"
-                    alt="Eğitim Süresi">
-                <span>Eğitim Süresi: <span id="displayEgitimSuresi"></span></span>
+                <span style="font-weight: bold;">Eğitimin Süresi:</span> <span id="displayEgitimSuresi"
+                    style="font-weight: normal;"></span>
             </div>
-            <p><strong>Eğitim Kodu:</strong> <span id="displayEgitimID"></span></p>
+
+            <div class="info-item">
+                <span style="font-weight: bold;">Eğitim Kodu:</span> <span id="displayEgitimID"
+                    style="font-weight: normal;"></span>
+            </div>
         </div>
 
+        <!-- Madde Madde Listeleme -->
+        <h3>Eğitim Amacı</h3>
+        <ul id="displayEgitimAmaci"></ul>
+
         <h3>Eğitim Özeti</h3>
-        <p id="displayEgitimOzeti"></p>
+        <ul id="displayEgitimOzeti"></ul>
 
         <h3>Hedef Kitle</h3>
-        <p id="displayHedefKitle"></p>
-
-        <h3>Eğitimin Amacı</h3>
-        <p id="displayEgitimAmaci"></p> <!-- ✅ Yeni Alan -->
+        <ul id="displayHedefKitle"></ul>
 
         <h3>Kazanımlar</h3>
-        <p id="displayKazanımlar"></p> <!-- ✅ Yeni Alan -->
+        <ul id="displayKazanımlar"></ul>
 
         <h3>Gereksinimler</h3>
-        <p id="displayGereksinimler"></p> <!-- ✅ Yeni Alan -->
+        <ul id="displayGereksinimler"></ul>
 
         <h3>Kullanılacak Programlar</h3>
-        <p id="displayKullanilacakProgramlar"></p> <!-- ✅ Yeni Alan -->
+        <ul id="displayKullanilacakProgramlar"></ul>
 
+        <h3>Kaynak Dökümanlar</h3>
+        <ul id="displayKaynakDokumanlar"></ul>
+        <!-- 🔟 Değerlendirme -->
         <h3>Değerlendirme</h3>
         <p>Bu eğitimin değerlendirme süreci iki aşamalıdır.</p>
         <ul>
@@ -179,29 +187,37 @@
             <li>Sınav başarı oranı en az %70 olmalıdır.</li>
         </ul>
 
+        <!-- 12️⃣ Sertifika -->
         <h3>Sertifika</h3>
         <p>Sertifika Türü: Katılım Sertifikası.</p>
         <div class="certificate-section">
-            <img src="https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/cab613d5-8c57-4bf1-8bd3-37c0fd56a395/sertifika.jpg"
-                alt="Sertifika">
+            <img src="https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/6d1789a2-5f88-4ab1-945d-ed5dc5143c43/ornek_sertifika.png?t=1740566177543"
+                alt="Sertifika" style="width: 50%; display: block; margin-left: 0;">
         </div>
 
-        <h3>Kaynak Dökümanlar</h3>
-        <p id="displayKaynakDokumanlar"></p><br>
 
-        <div class="footer">
-            <p>Bilgi Teknolojileri ve İletişim Kurumu, Eskişehir Yolu 10.Km, No: 276, 06530 Çankaya/Ankara</p>
-            <div class="info-item">
-                <img src="https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/c941c148-ce7a-45c8-be2c-fe095eb03a54/mesaj.jpg"
+        <div class="footer"
+            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <p style="margin: 0; padding: 0;">
+                Bilgi Teknolojileri ve İletişim Kurumu, <br>
+                Eskişehir Yolu 10.Km, No: 276, 06530 Çankaya/Ankara
+            </p>
+            <div class="info-item" style="display: flex; align-items: center; gap: 5px;">
+                <img src="https://assets-btkakademi-gov-tr.akamaized.net/api/gallery/51/a6a27c1a-0cfa-4637-ac75-fd7e11b10a99/mail_icon.png?t=1740567332640"
                     alt="Destek Hattı">
-                <p><a href="mailto:destek@btkakademi.gov.tr">destek@btkakademi.gov.tr</a></p>
+                <a href="mailto:destek@btkakademi.gov.tr"
+                    style="color: gray; text-decoration: none; font-weight: normal;">
+                    destek@btkakademi.gov.tr
+                </a>
             </div>
         </div>
+
+
     </div>
 
     <!-- Sayfa Dışı Butonlar -->
     <div class="print-buttons">
-        <button id="printBtn" onclick="printPage()">🖨️ Sayfayı Yazdır</button>
+        <button id="printBtn" onclick="printPage()">🖨 Sayfayı Yazdır</button>
         <button id="wordConvertBtn" onclick="openPdfModal()">📄 Word Olarak İndir</button>
     </div>
 
