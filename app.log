@@ -132,3 +132,14 @@ pip install python-multipart
 2025-03-06 09:15:27,685 - (1/2) Page 1
 2025-03-06 09:15:27,728 - (2/2) Page 2
 2025-03-06 09:15:27,844 - Terminated in 0.94s.
+2025-03-12 16:28:48,411 - Start to convert temp_A.pdf
+2025-03-12 16:28:48,413 - [1;36m[1/4] Opening document...[0m
+2025-03-12 16:28:48,416 - [1;36m[2/4] Analyzing document...[0m
+2025-03-12 16:28:50,178 - Words count: 0. It might be a scanned pdf, which is not supported yet.
+2025-03-12 16:28:50,179 - [1;36m[3/4] Parsing pages...[0m
+2025-03-12 16:28:50,179 - (1/2) Page 1
+2025-03-12 16:28:50,180 - (2/2) Page 2
+2025-03-12 16:28:50,180 - [1;36m[4/4] Creating pages...[0m
+2025-03-12 16:28:50,197 - (1/2) Page 1
+2025-03-12 16:28:50,199 - (2/2) Page 2
+2025-03-12 16:28:50,211 - Terminated in 1.80s.

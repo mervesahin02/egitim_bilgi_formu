@@ -10,17 +10,18 @@ def read_docx(file):
         doc = Document(BytesIO(file))  
 
         data = {
-            "id": "",  # ✅ ID Bilgisi eklendi
+            "id": "",  
             "egitim_adi": "",
             "egitmen_adi": "",
             "egitim_suresi": "",
             "hedef_kitle": "",
             "egitim_ozeti": "",
             "kaynak_dokumanlar": "",
-            "gereksinimler": "",  # ✅ Yeni alan eklendi
-            "kazanimlar": "",  # ✅ Yeni alan eklendi
-            "amac": "",  # ✅ Yeni alan eklendi
-            "kullanilacak_programlar": "" # ✅ Yeni alan eklendi
+            "gereksinimler": "",  
+            "kazanimlar": "",  
+            "amac": "",  
+            "kullanilacak_programlar": "" ,
+            "yardimci_kaynaklar": ""
         }
 
         print("\n🔍 DOCX Dosyası Okunuyor...")

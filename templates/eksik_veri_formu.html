@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eksik Veri Formu</title>
+    <link rel="icon" href="data:,"> <!-- Favicon ekleme -->
     <script defer src="js/main.js"></script>
     <style>
         body {
@@ -71,14 +72,13 @@
             <textarea id="gereksinimler" placeholder="Gereksinimler"></textarea>
             <textarea id="kullanilacak_programlar" placeholder="Kullanılacak Programlar"></textarea>
             <textarea id="kaynakDokumanlar" placeholder="Kaynak Dökümanlar"></textarea>
-            <textarea id="degerlendirme" placeholder="Değerlendirme"></textarea>
-            <textarea id="sertifika" placeholder="Sertifika"></textarea>
-            <button type="button" onclick="submitForm()">Verileri Kaydet</button>
+            <textarea id="yardimciKaynaklar" placeholder="Yardımcı Kaynaklar"></textarea>
+            <button id="submitButton" type="button">Verileri Kaydet</button>
         </form>
         
 
         <script>
-            document.getElementById("submitButton").addEventListener("click", function () {
+            function submitForm() {
                 const formData = {
                     egitmenAdi: document.getElementById("egitmenAdi").value,
                     egitimAdi: document.getElementById("egitimAdi").value,
@@ -91,13 +91,24 @@
                     gereksinimler: document.getElementById("gereksinimler").value,
                     kullanilacak_programlar: document.getElementById("kullanilacak_programlar").value,
                     kaynakDokumanlar: document.getElementById("kaynakDokumanlar").value,
-                    degerlendirme: document.getElementById("degerlendirme").value,
-                    sertifika: document.getElementById("sertifika").value
+                    yardimciKaynaklar: document.getElementById("yardimciKaynaklar").value,
                 };
-    
-                console.log("Form Verileri:", formData);
+        
+                console.log("✅ Form Verileri:", formData);
+            }
+        
+            // 📌 Sayfa tamamen yüklenmeden önce butonu arama!
+            document.addEventListener("DOMContentLoaded", function () {
+                let submitButton = document.getElementById("submitButton");
+        
+                if (submitButton) {
+                    submitButton.addEventListener("click", submitForm);
+                } else {
+                    console.error("⛔ Hata: submitButton bulunamadı!");
+                }
             });
         </script>
+        
 
     </div>
 </body>
