@@ -41,7 +41,6 @@ python main.py
 
 - 2. Ekran
 ![WhatsApp Görsel 2025-05-28 saat 10 35 18_950fa854](https://github.com/user-attachments/assets/b38b58d3-9855-4aba-b301-7c86df4d1a38)
-![WhatsApp Görsel 2025-05-28 saat 10 35 35_fb9a0910](https://github.com/user-attachments/assets/45ec64cc-388d-4195-bf4d-b027a9d130fc)
 ![WhatsApp Görsel 2025-05-28 saat 10 35 44_12d08049](https://github.com/user-attachments/assets/d98d194d-1e6e-4904-91fe-a011f060375b)
 
 - 3. Ekran
